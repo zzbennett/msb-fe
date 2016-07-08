@@ -1,0 +1,17 @@
+md-toolbar {
+  padding: 0px;
+}
+
+md-icon {
+  padding: 10px;
+  font-size: 36px;
+  height: 36px;
+  width: 36px;
+}
+.mr-fill-half {
+  flex: .5 1 auto;
+}
+
+.mr-fill-remaining {
+  flex: 1 1 auto;
+}
