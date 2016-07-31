@@ -1,6 +1,6 @@
 import * as showdown from 'showdown';
 
-export class MarkDownUtil {
+export class MarkDownRenderer {
   public converter: any;
 
   constructor() {

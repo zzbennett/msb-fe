@@ -8,14 +8,14 @@ import {MarkDownRenderer} from "../services/markdown-renderer.service";
   styleUrls: ['app/post-summary/post-summary.component.css']
 })
 
-export class PostSummaryComponent {
+export class PostComponent {
   constructor(private _markDownRenderer: MarkDownRenderer) {}
 
   @Input() post: Post;
-  public summaryHtml: string;
+  public bodyHtml: string;
 
   ngOnInit() {
-    this.summaryHtml = this._markDownRenderer.renderToHtml(this.post.summary);
-    console.log("summary html: "+this.summaryHtml);
+    this.bodyHtml = this._markDownRenderer.renderToHtml(this.post.body);
+    console.log("summary html: "+this.bodyHtml);
   }
 }
