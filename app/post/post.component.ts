@@ -1,21 +1,44 @@
 import {Component, Input} from '@angular/core';
 import {Post} from "../models/post";
 import {MarkDownRenderer} from "../services/markdown-renderer.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {PostsService} from "../services/posts.service";
 
 @Component({
-  selector: 'msb-post-summary',
-  templateUrl: 'app/post-summary/post-summary.component.html',
-  styleUrls: ['app/post-summary/post-summary.component.css']
+  selector: 'msb-post',
+  templateUrl: 'app/post/post.component.html',
+  styleUrls: ['app/post/post.component.css']
 })
 
 export class PostComponent {
-  constructor(private _markDownRenderer: MarkDownRenderer) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _postsService: PostsService,
+    private _markDownRenderer: MarkDownRenderer) {}
 
-  @Input() post: Post;
+  public post: Post;
   public bodyHtml: string;
+  private sub: any;
+  public errorMessage: string;
 
   ngOnInit() {
-    this.bodyHtml = this._markDownRenderer.renderToHtml(this.post.body);
-    console.log("summary html: "+this.bodyHtml);
+
+    this.sub = this._route.params.subscribe(params => {
+      let id:string = params['id'];
+      this._postsService.getPost(id).subscribe(
+        p => {
+          this.post = p;
+          this.bodyHtml = this._markDownRenderer.renderToHtml(this.post.body);
+        },
+        error => {
+          this.errorMessage = <any>error;
+        }
+      );
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

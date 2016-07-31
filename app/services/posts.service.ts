@@ -10,8 +10,11 @@ export class PostsService {
 
   private postsUrl = "http://luke:5000/v1/posts";
 
+  getPost(id: string): Observable<Post> {
+    return this.http.get(this.postsUrl+"/"+id).map(HttpUtil.extractData).catch(HttpUtil.handleError)
+  }
+
   getPosts(): Observable<Post[]> {
-    console.log("Getting posts");
     return this.http.get(this.postsUrl).map(HttpUtil.extractData).map(PostsService.extractPosts).catch(HttpUtil.handleError)
   }
 
