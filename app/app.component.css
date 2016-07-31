@@ -1,5 +1,7 @@
 md-toolbar {
-  padding: 0px;
+  padding: 10px;
+  background-color: white;
+  border-bottom: solid 5px goldenrod;
 }
 
 md-icon {
@@ -7,6 +9,7 @@ md-icon {
   font-size: 36px;
   height: 36px;
   width: 36px;
+  color: darkgoldenrod;
 }
 .mr-fill-half {
   flex: .5 1 auto;
@@ -14,4 +17,32 @@ md-icon {
 
 .mr-fill-remaining {
   flex: 1 1 auto;
+}
+
+.flex-row-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column; /* works with row or column */
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+
+  flex-grow: 1;
+}
+
+my-app {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+my-app > * {
+  flex-shrink: 0;
+}
+
+msb-content {
+  padding: 20px;
 }

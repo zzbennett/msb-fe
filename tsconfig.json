@@ -9,5 +9,15 @@
     "removeComments": false,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "node_modules",
+    "typings"
+  ],
+  "files": [
+    "./app/main.ts",
+    "./typings/index.d.ts"
+  ]
 }

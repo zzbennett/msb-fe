@@ -1,20 +1,21 @@
 /* Master Styles */
 h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 250%;
+  font-weight: 700;
+  padding:0;
+  margin:0;
 }
 h2, h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 body {
   margin: 2em;
 }
 body, input[text], button {
-  color: #888;
-  font-family: Cambria, Georgia;
+  font-family: 'Playfair Display', serif;
+  /*font-weight: 400;*/
 }
 a {
   cursor: pointer;
@@ -50,7 +51,7 @@ nav a:visited, a:link {
   color: #607D8B;
 }
 nav a:hover {
-  color: #039be5;
+  color: #06e5c7;
   background-color: #CFD8DC;
 }
 nav a.router-link-active {
@@ -137,10 +138,15 @@ nav a.router-link-active {
 
 /* everywhere else */
 * {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Playfair Display', serif;
+  color: #4b370a;
+  /*font-weight: 400;*/
 }
 
 html, body {
   padding:0;
   margin:0;
+  height: 100%;
+  /*background-color: #d7ffdc;*/
 }
+
