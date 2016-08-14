@@ -1,3 +1,6 @@
-<div *ngFor="let p of posts" id="content-div">
-  <msb-post-summary [post]="p" (click)="onSelect(p)"></msb-post-summary>
+<div *ngIf="!posts">Loading...</div>
+<div *ngIf="posts">
+  <div *ngFor="let p of posts" id="content-div">
+    <msb-post-summary [post]="p" (click)="onSelect(p)"></msb-post-summary>
+  </div>
 </div>
