@@ -1,7 +1,7 @@
 md-toolbar {
   padding: 10px;
   background-color: white;
-  border-bottom: solid 5px goldenrod;
+  border-bottom: solid 5px #ffcb80;
 }
 
 md-icon {
@@ -9,7 +9,7 @@ md-icon {
   font-size: 36px;
   height: 36px;
   width: 36px;
-  color: darkgoldenrod;
+  color: #220133;
 }
 .mr-fill-half {
   flex: .5 1 auto;

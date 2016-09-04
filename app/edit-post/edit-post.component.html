@@ -1,2 +1,9 @@
-<h1>{{action}} a post</h1>
-<input [(ngModel)]="post.title" placeholder="Title">
+<h2><em>{{action}} a post</em></h2>
+
+<button class="edit-button" (click)="savePost()">Save</button>
+<div class="flex-row-container">
+  <input class="input-text-box" [(ngModel)]="post.title" placeholder="Title...">
+  <input class="input-text-box" [(ngModel)]="post.author" placeholder="Author...">
+  <textarea class="input-text-box" id="body-compose-summary" [(ngModel)]="post.summary"  placeholder="Summary..."></textarea>
+  <textarea class="input-text-box" id="body-compose-textarea" [(ngModel)]="post.body"  placeholder="Compose body..."></textarea>
+</div>

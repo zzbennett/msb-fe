@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit, OnDestroy} from '@angular/core';
 import {Post} from "../models/post";
 import {MarkDownRenderer} from "../services/markdown-renderer.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {PostsService} from "../services/posts.service";
   styleUrls: ['app/post/post.component.css']
 })
 
-export class PostComponent {
+export class PostComponent implements OnInit, OnDestroy {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,

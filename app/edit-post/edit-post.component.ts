@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit, OnDestroy} from '@angular/core';
 import {Post} from "../models/post";
 import {MarkDownRenderer} from "../services/markdown-renderer.service";
 import {ActivatedRoute, Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {PostsService} from "../services/posts.service";
   styleUrls: ['app/edit-post/edit-post.component.css']
 })
 
-export class EditPostComponent {
+export class EditPostComponent implements OnInit, OnDestroy {
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
@@ -47,5 +47,15 @@ export class EditPostComponent {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  public savePost() {
+    console.log("called on save. saving post: "+JSON.stringify(this.post));
+    this._postsService.save(this.post).subscribe(
+      response => {
+        console.log("Saved post. Response was: "+response);
+      }
+    );
+    this._router.navigate(['/posts']);
   }
 }

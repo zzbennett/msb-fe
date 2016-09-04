@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Post} from "../models/post";
 import {MarkDownRenderer} from "../services/markdown-renderer.service";
 
@@ -8,7 +8,7 @@ import {MarkDownRenderer} from "../services/markdown-renderer.service";
   styleUrls: ['app/post-summary/post-summary.component.css']
 })
 
-export class PostSummaryComponent {
+export class PostSummaryComponent implements OnInit {
   constructor(private _markDownRenderer: MarkDownRenderer) {}
 
   @Input() post: Post;
@@ -16,6 +16,5 @@ export class PostSummaryComponent {
 
   ngOnInit() {
     this.summaryHtml = this._markDownRenderer.renderToHtml(this.post.summary);
-    console.log("summary html: "+this.summaryHtml);
   }
 }

@@ -1,10 +1,16 @@
-import {Response} from "@angular/http";
+import {Response, Headers, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 export class HttpUtil {
 
+  static jsonOptions() {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return options;
+  }
+
   static extractData(res: Response) {
     let body = res.json();
-    console.log("got response: "+JSON.stringify(body));
+    console.debug("got response: "+JSON.stringify(body));
     return body || { };
   }
 

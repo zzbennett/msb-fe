@@ -5,4 +5,5 @@ export class Post {
   summary: string;
   title: string;
   date: string;
+  active: boolean;
 }

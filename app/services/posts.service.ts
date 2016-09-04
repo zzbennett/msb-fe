@@ -18,6 +18,13 @@ export class PostsService {
     return this.http.get(this.postsUrl).map(HttpUtil.extractData).map(PostsService.extractPosts).catch(HttpUtil.handleError)
   }
 
+  save(post: Post) {
+    return this.http.post(this.postsUrl, JSON.stringify(post), HttpUtil.jsonOptions())
+      .map(HttpUtil.extractData)
+      .map(PostsService.extractPosts)
+      .catch(HttpUtil.handleError);
+  }
+
   static extractPosts(body: any) {
     return body.posts;
   }

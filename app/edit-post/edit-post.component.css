@@ -1,0 +1,30 @@
+
+.flex-row-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column; /* works with row or column */
+  flex-direction: column;
+  /*-webkit-align-items: flex-start;*/
+  align-items: left;
+  -webkit-justify-content: flex-start;
+  justify-content: left;
+
+  flex-grow: 1;
+}
+
+.input-text-box {
+  margin-bottom: 20px;
+}
+
+#body-compose-textarea {
+  height: 500px;
+}
+
+#body-compose-summary {
+  height: 200px;
+}
+
+.edit-button {
+  width: 100%;
+
+}
