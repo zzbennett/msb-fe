@@ -1,5 +1,6 @@
-import {Response, Headers, RequestOptions} from "@angular/http";
-import {Observable} from "rxjs/Rx";
+import { Response, Headers, RequestOptions } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+
 export class HttpUtil {
 
   static jsonOptions() {
@@ -10,11 +11,11 @@ export class HttpUtil {
 
   static extractData(res: Response) {
     let body = res.json();
-    console.debug("got response: "+JSON.stringify(body));
-    return body || { };
+    console.debug('got response: ' + JSON.stringify(body));
+    return body || {};
   }
 
-  static handleError (error: any) {
+  static handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :

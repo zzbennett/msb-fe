@@ -1,8 +1,10 @@
-import {Component, Input, OnInit, OnDestroy} from '@angular/core';
-import {Post} from "../models/post";
-import {MarkDownRenderer} from "../services/markdown-renderer.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {PostsService} from "../services/posts.service";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { MarkDownRenderer } from '../services/markdown-renderer.service';
+
+import { Post } from '../models/post';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'msb-edit-post',
@@ -15,7 +17,7 @@ export class EditPostComponent implements OnInit, OnDestroy {
     private _route: ActivatedRoute,
     private _router: Router,
     private _postsService: PostsService,
-    private _markDownRenderer: MarkDownRenderer) {}
+    private _markDownRenderer: MarkDownRenderer) { }
 
   public post: Post;
   public action: string;
@@ -26,12 +28,12 @@ export class EditPostComponent implements OnInit, OnDestroy {
   ngOnInit() {
 
     this.sub = this._route.params.subscribe(params => {
-      let id:string = params['id'];
-      if(id === "new") {
+      let id: string = params['id'];
+      if (id === 'new') {
         this.post = new Post();
-        this.action = "Create";
+        this.action = 'Create';
       } else {
-        this.action = "Edit";
+        this.action = 'Edit';
         this._postsService.getPost(id).subscribe(
           p => {
             this.post = p;
@@ -50,10 +52,10 @@ export class EditPostComponent implements OnInit, OnDestroy {
   }
 
   public savePost() {
-    console.log("called on save. saving post: "+JSON.stringify(this.post));
+    console.log('called on save. saving post: ' + JSON.stringify(this.post));
     this._postsService.save(this.post).subscribe(
       response => {
-        console.log("Saved post. Response was: "+response);
+        console.log('Saved post. Response was: ' + response);
       }
     );
     this._router.navigate(['/posts']);

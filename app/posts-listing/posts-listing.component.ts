@@ -1,22 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import {PostsService} from "../services/posts.service";
-import {Post} from "../models/post";
-import {PostSummaryComponent} from "../post-summary/post-summary.component";
-import {ROUTER_DIRECTIVES, Router} from "@angular/router";
+import { Post } from '../models/post';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'post-listing',
   templateUrl: 'app/posts-listing/posts-listing.component.html',
-  styleUrls: ['app/posts-listing/posts-listing.component.css'],
-  directives: [PostSummaryComponent, ROUTER_DIRECTIVES]
+  styleUrls: ['app/posts-listing/posts-listing.component.css']
 })
 export class PostsListingComponent implements OnInit {
   public posts: Post[];
   public errorMessage: string;
 
   constructor(private postsService: PostsService,
-              private router: Router) {
+    private router: Router) {
   }
 
   ngOnInit() {
