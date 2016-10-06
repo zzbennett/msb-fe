@@ -3,7 +3,7 @@
   "description": "QuickStart package.json from the documentation, supplemented with testing support",
   "main": "",
   "authors": [
-    "Sebastian Clausen <sebastian.clausen@bilfinger.com>"
+    "Sebastian Clausen <github@sebastian-clausen.de>"
   ],
   "license": "ISC",
   "homepage": "https://github.com/zzbennett/msb-fe",
