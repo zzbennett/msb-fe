@@ -1,8 +1,10 @@
-import {Component, Input, OnInit, OnDestroy} from '@angular/core';
-import {Post} from "../models/post";
-import {MarkDownRenderer} from "../services/markdown-renderer.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {PostsService} from "../services/posts.service";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { MarkDownRenderer } from '../services/markdown-renderer.service';
+
+import { Post } from '../models/post';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'msb-post',
@@ -11,21 +13,20 @@ import {PostsService} from "../services/posts.service";
 })
 
 export class PostComponent implements OnInit, OnDestroy {
-  constructor(
-    private _route: ActivatedRoute,
-    private _router: Router,
-    private _postsService: PostsService,
-    private _markDownRenderer: MarkDownRenderer) {}
-
   public post: Post;
   public bodyHtml: string;
   private sub: any;
   public errorMessage: string;
 
-  ngOnInit() {
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router,
+    private _postsService: PostsService,
+    private _markDownRenderer: MarkDownRenderer) { }
 
+  ngOnInit() {
     this.sub = this._route.params.subscribe(params => {
-      let id:string = params['id'];
+      let id: string = params['id'];
       this._postsService.getPost(id).subscribe(
         p => {
           this.post = p;

@@ -1,9 +1,9 @@
-import {PostsListingComponent} from "./posts-listing/posts-listing.component";
-import {PostComponent} from "./post/post.component";
-import {EditPostComponent} from "./edit-post/edit-post.component";
+import { PostsListingComponent } from './posts-listing/posts-listing.component';
+import { PostComponent } from './post/post.component';
+import { EditPostComponent } from './edit-post/edit-post.component';
 
 import { Routes, RouterModule } from '@angular/router';
-import {PageNotFoundComponent} from "./page-not-found.component";
+import { PageNotFoundComponent } from './page-not-found.component';
 
 const appRoutes: Routes = [
   { path: 'posts', component: PostsListingComponent },

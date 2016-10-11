@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Post} from "../models/post";
-import {MarkDownRenderer} from "../services/markdown-renderer.service";
+import { Component, Input, OnInit } from '@angular/core';
+
+import { MarkDownRenderer } from '../services/markdown-renderer.service';
+
+import { Post } from '../models/post';
 
 @Component({
   selector: 'msb-post-summary',
@@ -9,7 +11,7 @@ import {MarkDownRenderer} from "../services/markdown-renderer.service";
 })
 
 export class PostSummaryComponent implements OnInit {
-  constructor(private _markDownRenderer: MarkDownRenderer) {}
+  constructor(private _markDownRenderer: MarkDownRenderer) { }
 
   @Input() post: Post;
   public summaryHtml: string;
